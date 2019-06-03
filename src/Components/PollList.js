@@ -31,43 +31,23 @@ function PollList() {
         return ("Loading...")
     }
 
-    function showTrumpApproval() {
-        var filtered = polls.filter(e => e.type === "trump-approval")
-        setfilteredPolls(filtered)
-    }
-
-
-    function showAll() {
-        setfilteredPolls(polls)
-    }
-
-
-    function showDPrimary() {
-        var filtered = polls.filter(e => e.type === "president-primary-d")
-        setfilteredPolls(filtered)
-    }
-
-
-    function showRPrimary() {
-        var filtered = polls.filter(e => e.type === "president-primary-r")
-        setfilteredPolls(filtered)
-    }
-
-
-    function showGeneric() {
-        var filtered = polls.filter(e => e.type === "generic-ballot")
-        setfilteredPolls(filtered)
+    function updateData(type) {
+        if (type) {
+            var filtered = polls.filter(e => e.type === type)
+            setfilteredPolls(filtered)
+        } else {
+            setfilteredPolls(polls)
+        }
     }
 
     return (
-        <div className="polls">
-            <button onClick={() => showAll()}>Show All</button>
-            <button onClick={() => showTrumpApproval()}>Trump Approval</button>
-            <button onClick={() => showDPrimary()}>D Primary</button>
-            <button onClick={() => showRPrimary()}>R Primary</button>
-            <button onClick={() => showGeneric()}>Generic Ballot</button>
 
-
+        <React.Fragment>
+            <button onClick={() => updateData()}>Show All</button>
+            <button onClick={() => updateData("trump-approval")}>Trump Approval</button>
+            <button onClick={() => updateData("president-primary-d")}>D Primary</button>
+            <button onClick={() => updateData("president-primary-r")}>R Primary</button>
+            <button onClick={() => updateData("generic-ballot")}>Generic Ballot</button>
 
             {
                 filteredPolls && filteredPolls.map((poll) => (
@@ -78,7 +58,9 @@ function PollList() {
 
                 ))
             }
-        </div>
+
+        </React.Fragment>
+
 
     );
 }
