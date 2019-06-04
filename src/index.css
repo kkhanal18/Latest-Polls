@@ -12,7 +12,7 @@ body {
   }
 
 a {
-  color:rgb(0, 51, 255);
+  /* color:rgb(0, 51, 255); */
 
 }
 
@@ -25,5 +25,5 @@ a {
   
 
 h1 {
-  display:inline;
+  /* display:inline; */
 }

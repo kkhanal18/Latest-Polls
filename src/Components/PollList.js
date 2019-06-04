@@ -1,5 +1,9 @@
-		import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as moment from 'moment';
+
+import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+
 
 import PollCard from './PollCard'
 
@@ -41,8 +45,8 @@ function PollList() {
     }
 
     return (
-
         <React.Fragment>
+
             <button onClick={() => updateData()}>Show All</button>
             <button onClick={() => updateData("trump-approval")}>Trump Approval</button>
             <button onClick={() => updateData("president-primary-d")}>D Primary</button>
@@ -60,6 +64,7 @@ function PollList() {
             }
 
         </React.Fragment>
+
 
 
     );
