@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as moment from 'moment';
 
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-
-
 import PollCard from './PollCard'
 
 function PollList() {
