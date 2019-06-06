@@ -5,27 +5,34 @@ import shortenString from '../Helper/ShortenString'
 import * as moment from 'moment';
 
 
-function PollCard({ poll }) {
+const PollCard = (props) => {
+
+    const { poll } = props
+    const type = formatType(poll.type)
+    const startDate = moment(poll.startDate, "YYYY-MM-DD").format("MMMM Do")
+    const endDate = moment(poll.endDate, "YYYY-MM-DD").format("MMMM Do")
+    const pollster = shortenString(poll.pollster)
+    console.log("in poll card")
+
     return (
-        <div>
+        <React.Fragment>
             <div>
-                <p style={{ opacity: '.85' }}>
-                    <b>{formatType(poll.type)}</b> ({moment(poll.startDate, "YYYY-MM-DD").format("MMMM Do")} to {moment(poll.endDate, "YYYY-MM-DD").format("MMMM Do")}
-                    ) - <a href={poll.url} target="_blank">{shortenString(poll.pollster)}</a> <span style={{ opacity: '.25' }}>{poll.grade}</span>
-                </p>
+                <b>{pollster}</b> ({type})| {startDate} to {endDate}
             </div>
 
+            <br />
             {poll.answers.map(answer => {
                 return (
-                    <div key={answer.choice}>
-                        {answer.choice}: {answer.pct}
+                    <div>
+                        <div key={answer.choice}>
+                            {answer.choice}: {answer.pct}
+                        </div>
                     </div>
                 )
 
             })}
 
-
-        </div>
+        </React.Fragment>
     )
 }
 

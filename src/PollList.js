@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+// import { Consumer } from '../context'
 import * as moment from 'moment';
 
-import PollCard from './PollCard'
+import PollCard from './Components/PollCard'
 
 function PollList() {
     console.log("rending..")
@@ -43,12 +44,11 @@ function PollList() {
     return (
         <React.Fragment>
 
-            <button onClick={() => updateData()}>Show All</button>
+            {/* <button onClick={() => updateData()}>Show All</button>
             <button onClick={() => updateData("trump-approval")}>Trump Approval</button>
             <button onClick={() => updateData("president-primary-d")}>D Primary</button>
             <button onClick={() => updateData("president-primary-r")}>R Primary</button>
             <button onClick={() => updateData("generic-ballot")}>Generic Ballot</button>
-
             {
                 filteredPolls && filteredPolls.map((poll) => (
                     <div key={poll.id}>
@@ -57,12 +57,8 @@ function PollList() {
                     </div>
 
                 ))
-            }
-
+            } */}
         </React.Fragment>
-
-
-
     );
 }
 

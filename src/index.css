@@ -12,8 +12,12 @@ body {
   }
 
 a {
-  /* color:rgb(0, 51, 255); */
+  text-decoration: none;
 
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .polls {
@@ -26,4 +30,12 @@ a {
 
 h1 {
   /* display:inline; */
+}
+
+.grade {
+  opacity: .3;
+}
+
+.grade:hover {
+  opacity: 1;
 }

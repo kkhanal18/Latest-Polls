@@ -1,17 +1,19 @@
 import React from 'react';
+// import PollList from './Components/PollList';
+import Polls from './Components/Polls'
 
-import PollList from './Components/PollList';
+import { Provider } from './context'
+
 
 function App() {
   return (
-    <div className="App">
-      <p>
-        <h1>Latest Polls</h1><div style={{ opacity: '.3' }}>Last updated 6 hours ago</div>
-      </p>
-      <div>
-        <PollList />
+    <Provider>
+      <div className="App">
+        <h1>Latest Polls</h1><p style={{ opacity: '.3' }}>Last updated 6 hours ago</p>
+        <Polls />
+
       </div>
-    </div>
+    </Provider>
   );
 }
 

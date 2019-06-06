@@ -1,43 +1,44 @@
 import React, { Component } from 'react'
 import * as moment from 'moment';
+import axios from "axios";
 
+export const Context = React.createContext();
 
 const url = 'https://projects.fivethirtyeight.com/polls/polls.json';
-const range = 30
-var dateRange = moment().subtract(range, 'days').calendar();
 
+export class Provider extends Component {
 
-
-class Provider extends Component {
-
-    // state = {
-    //     polls: polls
-    // }
-
+    state = {
+        polls: [],
+        totalResults: 0,
+        currentPage: 1
+    }
     componentDidMount() {
-        let response = fetch(url)
-        const json = response.son()
-        var polls = json.filter(e => Date.parse(e.endDate) >= Date.parse(dateRange)).reverse
-        return polls
+        var dateRange = moment().subtract(7, 'days').calendar();
+
+        axios
+            .get(url)
+            .then(res => {
+                this.setState({
+                    polls: res.data.filter(e => Date.parse(e.endDate) >= Date.parse(dateRange)).reverse()
+                })
+            })
+            .catch(error => console.log(error))
 
     }
-
-    // let response = await fetch(url)
-    // const json = await response.json()
-    // var data = json.filter(e => Date.parse(e.endDate) >= Date.parse(dateRange))
-    // setPolls(data.reverse())
-    // setfilteredPolls(data)
-    // setLoading(true);
-
-
-
     render() {
-        return (
-            <div>
+        console.log(this.state)
 
-            </div>
+        return (
+            <Context.Provider value={this.state}>
+                {this.props.children}
+            </Context.Provider>
+
         )
     }
 }
 
-export default Provider;
+export const Consumer = Context.Consumer;
+
+
+
