@@ -10,8 +10,7 @@ export class Provider extends Component {
 
     state = {
         polls: [],
-        totalResults: 0,
-        currentPage: 1
+        totalResults: 0
     }
     componentDidMount() {
         var dateRange = moment().subtract(7, 'days').calendar();
@@ -27,10 +26,10 @@ export class Provider extends Component {
 
     }
     render() {
-        console.log(this.state)
 
         return (
             <Context.Provider value={this.state}>
+                {console.log(this.state)}
                 {this.props.children}
             </Context.Provider>
 

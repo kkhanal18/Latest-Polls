@@ -5,7 +5,7 @@ body {
     line-height: 1.4;
     margin: 20px auto;
     max-width: 600px;
-    padding: 0 15px;
+    padding: 0 25px;
     font-size: 15px;
 
 
@@ -38,4 +38,17 @@ h1 {
 
 .grade:hover {
   opacity: 1;
+}
+
+.pollster {
+  font-style: italic;
+  opacity: .2;
+  position:right;
+}
+
+.line {
+  width:20%;
+  opacity: .1;
+  color:blue;
+  
 }

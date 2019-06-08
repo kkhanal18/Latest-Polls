@@ -5,7 +5,6 @@ import * as moment from 'moment';
 import PollCard from './Components/PollCard'
 
 function PollList() {
-    console.log("rending..")
 
     const [polls, setPolls] = useState(null);
     const [filteredPolls, setfilteredPolls] = useState(polls)

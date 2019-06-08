@@ -1,19 +1,31 @@
 import React from 'react';
 // import PollList from './Components/PollList';
 import Polls from './Components/Polls'
+import PollPage from './Components/PollPage'
 
-import { Provider } from './context'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
+// import { Provider } from './context'
 
 
 function App() {
   return (
-    <Provider>
-      <div className="App">
-        <h1>Latest Polls</h1><p style={{ opacity: '.3' }}>Last updated 6 hours ago</p>
-        <Polls />
+    <Router>
 
-      </div>
-    </Provider>
+      <h1>Latest Polls</h1><p style={{ opacity: '.3' }}>Last updated 6 hours ago</p>
+      <Switch>
+        <Route exact path="/" component={Polls} />
+        <Route exact path="/polls/:id" component={PollPage} />
+
+
+
+      </Switch>
+
+
+
+    </Router>
+
   );
 }
 
