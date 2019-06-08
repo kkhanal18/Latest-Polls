@@ -15,7 +15,13 @@ class PollPage extends Component {
 
 
                     if (polls === undefined || polls.length === 0) {
-                        return (<p>Page loading</p>)
+                        return (
+                            <React.Fragment>
+                                <p>Page loading</p>
+                                <a href="/">Go back</a>
+
+                            </React.Fragment>
+                        )
                     } else {
                         var poll = polls.find(x => x.id === this.props.match.params.id)
                         return (
@@ -44,6 +50,10 @@ class PollPage extends Component {
                                 <p>{poll.startDate}</p>
                                 <p>{poll.subgroup}</p>
                                 <p>{poll.url}</p>
+                                <a href="/">Go back</a>
+
+
+
                             </React.Fragment>
 
                         )
@@ -53,6 +63,7 @@ class PollPage extends Component {
 
 
                 }}
+
 
             </Consumer>
 
