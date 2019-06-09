@@ -14,31 +14,46 @@ const PollRow = (props) => {
     return (
         <React.Fragment>
 
-            <div>
+            <div class="card mb-4">
 
-                <a className="type-link" href={`/polls/${poll.id}`}> <b>{type}
-                </b>{" "}{created_at}{" "}
-                    <content>{pollster}</content></a>
+                {/* <div class="body"> */}
 
+                <h5 class="card-title">
+
+                    <a className="type-link" href={`/polls/${poll.id}`}>
+                        {type} | {created_at}
+                    </a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">{pollster}</h6>
+
+
+                {/* <content>{poll.state}</content> */}
+                {console.log(poll.answers)}
+
+
+                {poll.answers.sort(function (a, b) { return b.pct - a.pct }).map(answer => {
+                    return (
+                        // <ul class="list-group list-group-flush">
+                        //     <li class="list-group-item">
+
+                        //         <div key={answer.choice}>
+                        //             {answer.choice}: {answer.pct}
+                        //         </div>
+                        //     </li>
+                        // </ul>
+                        <div key={answer.choice}>
+                            {answer.choice}: {answer.pct}
+                        </div>
+
+
+                    )
+
+                })}
             </div>
-            <content>{poll.state}</content>
 
-            <br />
+            {/* </div> */}
 
-
-
-            {poll.answers.map(answer => {
-                return (
-                    <div key={answer.choice}>
-                        {answer.choice}: {answer.pct}
-                    </div>
-
-
-                )
-
-            })}
-
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

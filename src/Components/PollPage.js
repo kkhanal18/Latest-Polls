@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { Consumer } from '../context'
+import { Link } from 'react-router-dom';
+
 
 import formatType from '../Helper/FormatType'
 import shortenString from '../Helper/ShortenString'
 
+export const backButton = () => {
+    return (
+        <a href="/" class="btn btn-dark" role="button">Back</a>
+    )
+
+}
 
 
 class PollPage extends Component {
@@ -12,8 +20,11 @@ class PollPage extends Component {
     render() {
 
         return (
+
             <Consumer>
+
                 {value => {
+
                     const { polls } = value
                     console.log(Array.isArray(polls))
 
@@ -21,9 +32,13 @@ class PollPage extends Component {
                     if (polls === undefined || polls.length === 0) {
                         return (
                             <React.Fragment>
-                                <a href="/">Go back</a>
-                                <p>Page loading</p>
+                                <p>
+                                    {backButton()}
 
+                                </p>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
                             </React.Fragment>
                         )
                     } else {
@@ -32,13 +47,15 @@ class PollPage extends Component {
 
                             <React.Fragment>
 
-                                <a href="/">Go back</a>
+                                <p>
+                                    {backButton()}
+                                </p>
 
                                 <p><b>Poll Type</b> {formatType(poll.type)}</p>
-                                <p><b>Create</b> {poll.created_at}</p>
+                                <p><b>Create</b>  {poll.created_at}</p>
                                 <p><b>End date</b>  {poll.endDate}</p>
                                 <p><b>Pollster grade</b>  {poll.grade}</p>
-                                <p><b>Id</b>{poll.id}</p>
+                                <p><b>Id</b>  {poll.id}</p>
                                 <p><b>Pollster</b> {poll.pollster}</p>
                                 <p><b>Population</b> {poll.population}</p>
                                 <p><b>Sample size</b> {poll.sampleSize}</p>
