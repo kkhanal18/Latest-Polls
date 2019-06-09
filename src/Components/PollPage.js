@@ -1,88 +1,66 @@
-import React, { Component } from 'react'
-import { Consumer } from '../context'
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Context } from "../context";
+import { Link } from "react-router-dom";
 
-
-import formatType from '../Helper/FormatType'
-import shortenString from '../Helper/ShortenString'
+import formatType from "../Helper/FormatType";
+import shortenString from "../Helper/ShortenString";
 
 export const backButton = () => {
+  return (
+    <a href="/" class="btn btn-dark" role="button">
+      Back
+    </a>
+  );
+};
+
+const PollPage = props => {
+  const [state] = useContext(Context);
+  const { polls } = state;
+  if (polls === undefined || polls.length === 0) {
     return (
-        <a href="/" class="btn btn-dark" role="button">Back</a>
-    )
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    );
+  } else {
+    console.log("polls from pollpage before find", polls);
+    // console.log("PROPS MATCH PATH ID", props.match.params.id);
+    var poll = polls.find(x => x.id === props.match.params.id);
+    console.log(poll);
 
-}
+    const {
+      created_at,
+      endDate,
+      grade,
+      id,
+      population,
+      pollster,
+      sampleSize,
+      seat_name,
+      startDate,
+      subgroup,
+      type,
+      url
+    } = poll;
 
-
-class PollPage extends Component {
-
-    pollId = this.props.match.params.id
-    render() {
-
-        return (
-
-            <Consumer>
-
-                {value => {
-
-                    const { polls } = value
-                    console.log(Array.isArray(polls))
-
-
-                    if (polls === undefined || polls.length === 0) {
-                        return (
-                            <React.Fragment>
-                                <p>
-                                    {backButton()}
-
-                                </p>
-                                <div class="spinner-border" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </React.Fragment>
-                        )
-                    } else {
-                        var poll = polls.find(x => x.id === this.props.match.params.id)
-                        return (
-
-                            <React.Fragment>
-
-                                <p>
-                                    {backButton()}
-                                </p>
-
-                                <p><b>Poll Type</b> {formatType(poll.type)}</p>
-                                <p><b>Create</b>  {poll.created_at}</p>
-                                <p><b>End date</b>  {poll.endDate}</p>
-                                <p><b>Pollster grade</b>  {poll.grade}</p>
-                                <p><b>Id</b>  {poll.id}</p>
-                                <p><b>Pollster</b> {poll.pollster}</p>
-                                <p><b>Population</b> {poll.population}</p>
-                                <p><b>Sample size</b> {poll.sampleSize}</p>
-                                <p><b>Seat name</b>  {poll.seat_name}</p>
-                                <p><b>Start date</b>  {poll.startDate}</p>
-                                <p><b>Subgroup</b> {poll.subgroup}</p>
-                                <a href={poll.url}> View source</a>
-
-
-
-                            </React.Fragment>
-
-                        )
-
-                    }
-
-
-
-                }}
-
-
-            </Consumer>
-
-        )
-    }
-}
+    return (
+      <div>
+        <p>{backButton()}</p>
+        <p>
+          Created at: {created_at} <br />
+          Type: {type} <br />
+          Grade: {grade} <br />
+          Pollster: {pollster} <br />
+          Sample size: {sampleSize} <br />
+          Seat name: {seat_name} <br />
+          Start date: {startDate} <br />
+          Subgroup: {subgroup} <br />
+          Type: {type} <br />
+          <a href="url">View source</a>
+        </p>
+      </div>
+    );
+  }
+};
 
 export default PollPage;
-
-
