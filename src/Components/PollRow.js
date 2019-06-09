@@ -10,10 +10,14 @@ const PollRow = props => {
   const created_at = moment(poll.created_at, "YYYYMM-DD").format("MMMM Do");
   const pollster = shortenString(poll.pollster);
 
+  const answers = poll.answers.sort(function(a, b) {
+    return b.pct - a.pct;
+  });
+
+  const diff = parseInt(answers[0].pct) - parseInt(answers[1].pct);
+
   return (
     <div class="card mb-4">
-      {/* <div class="body"> */}
-
       <h5 class="card-title">
         <a className="type-link" href={`/polls/${poll.id}`}>
           {type} | {created_at}
@@ -21,28 +25,21 @@ const PollRow = props => {
       </h5>
       <h6 class="card-subtitle mb-2 text-muted">{pollster}</h6>
 
-      {/* <content>{poll.state}</content> */}
-      {/* {console.log("poll. answers from pollrow", poll.id)} */}
-
-      {poll.answers
-        .sort(function(a, b) {
-          return b.pct - a.pct;
-        })
-        .map(answer => {
+      {answers.map(answer => {
+        if (answer === answers[0]) {
           return (
-            // <ul class="list-group list-group-flush">
-            //     <li class="list-group-item">
-
-            //         <div key={answer.choice}>
-            //             {answer.choice}: {answer.pct}
-            //         </div>
-            //     </li>
-            // </ul>
             <div key={answer.choice}>
-              {answer.choice}: {answer.pct}
+              {answer.choice} - {parseInt(answer.pct)} (+{diff})
             </div>
           );
-        })}
+        } else {
+          return (
+            <div key={answer.choice}>
+              {answer.choice} - {parseInt(answer.pct)}
+            </div>
+          );
+        }
+      })}
     </div>
   );
 };

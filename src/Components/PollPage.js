@@ -56,7 +56,7 @@ const PollPage = props => {
           Start date: {startDate} <br />
           Subgroup: {subgroup} <br />
           Type: {type} <br />
-          <a href="url">View source</a>
+          <a href={url}>View source</a>
         </p>
       </div>
     );
