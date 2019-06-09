@@ -12,13 +12,21 @@ body {
   }
 
 a {
+  color:black;
   text-decoration: none;
+  /* text-decoration-color: blue; */
+
 
 }
 
-a:hover {
+.type-link:hover {
   text-decoration: underline;
+  text-decoration-color: blue;
 }
+
+/* a:hover {
+  opacity: .5;
+} */
 
 .polls {
   /* background-color:rgb(209, 233, 255); */

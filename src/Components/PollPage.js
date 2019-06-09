@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Consumer } from '../context'
 
+import formatType from '../Helper/FormatType'
+import shortenString from '../Helper/ShortenString'
+
+
 
 class PollPage extends Component {
 
@@ -17,8 +21,8 @@ class PollPage extends Component {
                     if (polls === undefined || polls.length === 0) {
                         return (
                             <React.Fragment>
-                                <p>Page loading</p>
                                 <a href="/">Go back</a>
+                                <p>Page loading</p>
 
                             </React.Fragment>
                         )
@@ -26,31 +30,22 @@ class PollPage extends Component {
                         var poll = polls.find(x => x.id === this.props.match.params.id)
                         return (
 
-
-
-                            // polls.map(poll => (
-
-
-
-
-                            // ))
-
                             <React.Fragment>
 
-
-                                <p>{poll.type}</p>
-                                <p>{poll.created_at}</p>
-                                <p>{poll.endDate}</p>
-                                <p>{poll.grade}</p>
-                                <p>{poll.id}</p>
-                                <p>{poll.pollster}</p>
-                                <p>{poll.population}</p>
-                                <p>{poll.sampleSize}</p>
-                                <p>{poll.seat_name}</p>
-                                <p>{poll.startDate}</p>
-                                <p>{poll.subgroup}</p>
-                                <p>{poll.url}</p>
                                 <a href="/">Go back</a>
+
+                                <p><b>Poll Type</b> {formatType(poll.type)}</p>
+                                <p><b>Create</b> {poll.created_at}</p>
+                                <p><b>End date</b>  {poll.endDate}</p>
+                                <p><b>Pollster grade</b>  {poll.grade}</p>
+                                <p><b>Id</b>{poll.id}</p>
+                                <p><b>Pollster</b> {poll.pollster}</p>
+                                <p><b>Population</b> {poll.population}</p>
+                                <p><b>Sample size</b> {poll.sampleSize}</p>
+                                <p><b>Seat name</b>  {poll.seat_name}</p>
+                                <p><b>Start date</b>  {poll.startDate}</p>
+                                <p><b>Subgroup</b> {poll.subgroup}</p>
+                                <a href={poll.url}> View source</a>
 
 
 
