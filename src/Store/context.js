@@ -10,8 +10,6 @@ const initialState = {
   filteredPolls: []
 };
 
-// console.log("initialState ->", initialState);
-
 const filterReducer = (state, action) => {
   switch (action.type) {
     case "SHOW_ALL":
@@ -41,7 +39,6 @@ export function Provider({ children }) {
   //   polls: [],
   //   dispatch: action => this.setState(state => filterReducer(state, action))
   // };
-  // console.log("intialState -> ", this.initialState);
 
   const [allPolls, setAllPolls] = useState([]);
   const [{ filteredPolls }, dispatch] = useReducer(filterReducer, initialState);
