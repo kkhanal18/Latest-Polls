@@ -10,7 +10,7 @@ const initialState = {
   filteredPolls: []
 };
 
-console.log("initialState ->", initialState);
+// console.log("initialState ->", initialState);
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -54,11 +54,11 @@ export function Provider({ children }) {
     axios
       .get(url)
       .then(res => {
-        setAllPolls(
-          res.data
-            .filter(e => Date.parse(e.endDate) >= Date.parse(dateRange))
-            .reverse()
-        );
+        const data = res.data
+          .filter(e => Date.parse(e.endDate) >= Date.parse(dateRange))
+          .reverse();
+        setAllPolls(data);
+        dispatch({ type: "SHOW_ALL", payload: data });
       }, [])
       .catch(error => console.log(error));
   }, []);

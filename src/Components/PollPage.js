@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../context";
+import { Context } from "../Store/context";
 import { Link } from "react-router-dom";
 
 import formatType from "../Helper/FormatType";

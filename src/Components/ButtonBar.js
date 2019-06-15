@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useReducer } from "react";
-import { Context, filterReducer } from "../context";
+import { Context, filterReducer } from "../Store/context";
 
 const ButtonBar = () => {
   const { allPolls, dispatch } = useContext(Context);
@@ -15,7 +15,7 @@ const ButtonBar = () => {
     <div class="mb-2">
       <button class="btn btn-primary btn-sm" name="all" onClick={showAll}>
         All
-      </button>
+      </button>{" "}
       <button
         class="btn btn-primary btn-sm"
         name="trump approval"
