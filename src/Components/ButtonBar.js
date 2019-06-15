@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, useReducer } from "react";
-import { Context, filterReducer } from "../Store/context";
+import React, { useContext } from "react";
+import { Context } from "../Store/context";
 
 const ButtonBar = () => {
   const { allPolls, dispatch } = useContext(Context);
@@ -10,14 +10,13 @@ const ButtonBar = () => {
   const showApproval = () => {
     dispatch({ type: "SHOW_APPROVAL", payload: allPolls });
   };
-  console.log("in button bar");
   return (
-    <div class="mb-2">
-      <button class="btn btn-primary btn-sm" name="all" onClick={showAll}>
+    <div className="mb-2">
+      <button className="btn btn-primary btn-sm" name="all" onClick={showAll}>
         All
       </button>{" "}
       <button
-        class="btn btn-primary btn-sm"
+        className="btn btn-primary btn-sm"
         name="trump approval"
         onClick={showApproval}
       >

@@ -17,18 +17,18 @@ const PollRow = props => {
   const diff = parseInt(answers[0].pct) - parseInt(answers[1].pct);
 
   return (
-    <div class="card mb-4">
-      <h5 class="card-title">
-        <a className="type-link" href={`/polls/${poll.id}`}>
+    <div className="card mb-4">
+      <h5 className="card-title">
+        <a href={`/polls/${poll.id}`} className="type-link">
           {type} | {created_at}
         </a>
       </h5>
-      <h6 class="card-subtitle mb-2 text-muted">{pollster}</h6>
+      <h6 className="card-subtitle mb-2 text-muted">{pollster}</h6>
 
-      {answers.map(answer => {
+      {answers.map((answer, index) => {
         if (answer === answers[0]) {
           return (
-            <div key={answer.choice}>
+            <div key={index}>
               {answer.choice} - {parseInt(answer.pct)} (+{diff})
             </div>
           );

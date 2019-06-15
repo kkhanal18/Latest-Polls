@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Context } from "../Store/context";
 
 import PollRow from "./PollRow";
-import PollInfo from "./PollPage";
 
 const PollList = () => {
   const { filteredPolls } = useContext(Context);
@@ -11,11 +10,11 @@ const PollList = () => {
   //   dispatch({ type: "SHOW_ALL", payload: allPolls });
   // });
 
-  console.log("filtered polls in poll list ->", filteredPolls);
+  // console.log("filtered polls in poll list ->", filteredPolls);
   if (filteredPolls === undefined || filteredPolls.length === 0) {
     return (
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
     );
   } else {

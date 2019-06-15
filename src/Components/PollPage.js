@@ -1,35 +1,34 @@
 import React, { useContext } from "react";
 import { Context } from "../Store/context";
-import { Link } from "react-router-dom";
 
-import formatType from "../Helper/FormatType";
-import shortenString from "../Helper/ShortenString";
+// import formatType from "../Helper/FormatType";
+// import shortenString from "../Helper/ShortenString";
 
 export const backButton = () => {
   return (
-    <a href="/" class="btn btn-dark" role="button">
+    <a href="/" className="btn btn-dark" role="button">
       Back
     </a>
   );
 };
 
 const PollPage = props => {
-  const [state] = useContext(Context);
-  const { polls } = state;
-  if (polls === undefined || polls.length === 0) {
+  const { filteredPolls } = useContext(Context);
+  // const { polls } = state;
+  if (filteredPolls === undefined || filteredPolls.length === 0) {
     return (
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
     );
   } else {
-    var poll = polls.find(x => x.id === props.match.params.id);
+    var poll = filteredPolls.find(x => x.id === props.match.params.id);
 
     const {
       created_at,
-      endDate,
+      // endDate,
       grade,
-      id,
+      // id,
       population,
       pollster,
       sampleSize,
@@ -48,6 +47,7 @@ const PollPage = props => {
           Type: {type} <br />
           Grade: {grade} <br />
           Pollster: {pollster} <br />
+          Population: {population} <br />
           Sample size: {sampleSize} <br />
           Seat name: {seat_name} <br />
           Start date: {startDate} <br />

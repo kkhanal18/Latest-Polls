@@ -5,14 +5,20 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-dark bg-dark mb-3">
         <span className="navbar-brand mb-0 h1 mx-auto">
-          <a href="/" style={{ "text-decoration": "none", color: "white" }}>
+          <a href="/" style={{ textDecoration: "none", color: "white" }}>
             Latest Polls
           </a>
         </span>
       </nav>
-      <div class="mx-auto" align="center">
-        👷🏽‍Built by <a href="https://github.com/kkhanal18">kkhanal18</a> |{" "}
-        🔌Powered by{" "}
+      <div className="mx-auto" align="center">
+        <span role="img" aria-label="builder">
+          👷🏽‍
+        </span>
+        Built by <a href="https://github.com/kkhanal18">kkhanal18</a> |{" "}
+        <span role="img" aria-label="plug">
+          🔌
+        </span>
+        Powered by{" "}
         <a href="https://projects.fivethirtyeight.com/polls/polls.json">
           FiveThirtyEight
         </a>
@@ -22,3 +28,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// <span role="img" aria-label="plug">🔌</span>
