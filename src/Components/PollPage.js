@@ -23,10 +23,7 @@ const PollPage = props => {
       </div>
     );
   } else {
-    console.log("polls from pollpage before find", polls);
-    // console.log("PROPS MATCH PATH ID", props.match.params.id);
     var poll = polls.find(x => x.id === props.match.params.id);
-    console.log(poll);
 
     const {
       created_at,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import * as moment from "moment";
 import axios from "axios";
 
@@ -6,13 +6,45 @@ export const Context = React.createContext();
 
 const url = "https://projects.fivethirtyeight.com/polls/polls.json";
 
-export function Provider({ children }) {
-  let intialState = {
-    polls: [],
-    totalResults: 0
-  };
+const initialState = {
+  filteredPolls: []
+};
 
-  const [state, setState] = useState(intialState);
+console.log("initialState ->", initialState);
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case "SHOW_ALL":
+      return { filteredPolls: action.payload };
+    case "SHOW_APPROVAL":
+      return {
+        filteredPolls: action.payload.filter(e => e.type === "trump-approval")
+      };
+    default:
+      return state;
+  }
+};
+
+// export const filterReducer = (state, action) => {
+//   switch (action.type) {
+//     case "SHOW_ALL":
+//       return state.polls;
+//     case "SHOW_APPROVAL":
+//       return state.polls.filter(e => e.type === "trump-approval");
+//     default:
+//       return state.polls;
+//   }
+// };
+
+export function Provider({ children }) {
+  // let intialState = {
+  //   polls: [],
+  //   dispatch: action => this.setState(state => filterReducer(state, action))
+  // };
+  // console.log("intialState -> ", this.initialState);
+
+  const [allPolls, setAllPolls] = useState([]);
+  const [{ filteredPolls }, dispatch] = useReducer(filterReducer, initialState);
 
   useEffect(() => {
     var dateRange = moment()
@@ -22,17 +54,17 @@ export function Provider({ children }) {
     axios
       .get(url)
       .then(res => {
-        setState({
-          polls: res.data
+        setAllPolls(
+          res.data
             .filter(e => Date.parse(e.endDate) >= Date.parse(dateRange))
             .reverse()
-        });
+        );
       }, [])
       .catch(error => console.log(error));
   }, []);
+
   return (
-    <Context.Provider value={[state, setState]}>
-      {console.log("returning from context.js provider")}
+    <Context.Provider value={{ filteredPolls, allPolls, dispatch }}>
       {children}
     </Context.Provider>
   );
