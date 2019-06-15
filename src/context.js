@@ -21,7 +21,7 @@ const filterReducer = (state, action) => {
         filteredPolls: action.payload.filter(e => e.type === "trump-approval")
       };
     default:
-      return state;
+      return "state";
   }
 };
 
