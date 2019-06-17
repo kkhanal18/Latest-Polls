@@ -18,6 +18,17 @@ const filterReducer = (state, action) => {
       return {
         filteredPolls: action.payload.filter(e => e.type === "trump-approval")
       };
+    case "SHOW_DPRIMARY":
+      return {
+        filteredPolls: action.payload.filter(
+          e => e.type === "president-primary-d"
+        )
+      };
+    case "SHOW_GEN_ELECTION":
+      return {
+        filteredPolls: action.payload.filter(e => e.type === "generic-ballot")
+      };
+
     default:
       return "state";
   }
