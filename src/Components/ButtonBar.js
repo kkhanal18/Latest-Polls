@@ -4,9 +4,9 @@ import { Context } from "../Store/context";
 const ButtonBar = () => {
   const { allPolls, dispatch } = useContext(Context);
 
-  // const showAll = () => {
-  //   dispatch({ type: "SHOW_ALL", payload: allPolls });
-  // };
+  const showAll = () => {
+    dispatch({ type: "SHOW_ALL", payload: allPolls });
+  };
   const showApproval = () => {
     dispatch({ type: "SHOW_APPROVAL", payload: allPolls });
   };
