@@ -12,13 +12,9 @@ const ButtonBar = () => {
   };
   const showDPrimary = () => {
     dispatch({ type: "SHOW_DPRIMARY", payload: allPolls });
-
-    console.log("clicked showDPrimary");
   };
   const showGenElection = () => {
     dispatch({ type: "SHOW_GEN_ELECTION", payload: allPolls });
-
-    console.log("clicked showGenElection");
   };
   return (
     <div className="mb-2">
