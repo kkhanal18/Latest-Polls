@@ -1,6 +1,7 @@
 import React from "react";
 
 const Navbar = () => {
+  // Will contain the navs
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark mb-3">
