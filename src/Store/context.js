@@ -34,17 +34,6 @@ const filterReducer = (state, action) => {
   }
 };
 
-// export const filterReducer = (state, action) => {
-//   switch (action.type) {
-//     case "SHOW_ALL":
-//       return state.polls;
-//     case "SHOW_APPROVAL":
-//       return state.polls.filter(e => e.type === "trump-approval");
-//     default:
-//       return state.polls;
-//   }
-// };
-
 export function Provider({ children }) {
   // let intialState = {
   //   polls: [],
