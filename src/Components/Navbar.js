@@ -28,5 +28,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// <span role="img" aria-label="plug">🔌</span>
