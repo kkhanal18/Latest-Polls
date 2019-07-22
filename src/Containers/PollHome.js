@@ -3,7 +3,7 @@ import PollList from "../Components/PollsList";
 import ButtonBar from "../Components/ButtonBar";
 import Search from "../Components/Search";
 
-// Poll h
+// Poll hom
 
 const PollHome = () => {
   return (
