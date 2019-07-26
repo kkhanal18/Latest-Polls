@@ -8,7 +8,7 @@ import Search from "../Components/Search";
 const PollHome = () => {
   return (
     <div>
-      <Search />
+      {/* <Search /> */}
       <ButtonBar />
       <PollList />
     </div>
