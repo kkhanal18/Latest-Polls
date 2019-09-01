@@ -2,6 +2,7 @@
 
 Displays latest US election polls using [FiveThirtyEight](https://projects.fivethirtyeight.com/polls/polls.json) polls data. 
 
+[Live Demo](https://latest-polls.herokuapp.com/)
 ![](latestpolls_demo.gif)
 
 
