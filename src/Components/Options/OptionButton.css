@@ -1,0 +1,26 @@
+.option-button {
+  /* height: 100%; */
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  padding: 2px;
+}
+
+.option-button:hover {
+  background-color: rgb(221, 221, 221);
+  transition: background 0.25s ease;
+}
+
+.option-text {
+  width: 100%;
+  /* padding: 20px; */
+  margin: auto;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.selected {
+  font-weight: bold;
+  background-color: rgb(221, 221, 221);
+}

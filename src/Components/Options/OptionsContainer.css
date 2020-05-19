@@ -1,0 +1,20 @@
+.options-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  height: 100%;
+  width: 130px;
+  border: 1px solid black;
+}
+
+.options-container .hide {
+  visibility: hidden;
+}
+
+.options-container .option-button:last-child {
+  border-right: 1px solid;
+}
+
+.options-container .option-button:last-child .selected {
+  border-right: 1px solid;
+}

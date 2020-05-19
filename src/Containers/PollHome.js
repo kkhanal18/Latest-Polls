@@ -1,14 +1,12 @@
 import React from "react";
-import PollList from "../Components/PollsList";
-import ButtonBar from "../Components/ButtonBar";
-import Search from "../Components/Search";
-
-// Poll hom
+import PollList from "../Components/PollsList/PollsList";
+import ButtonBar from "../Components/Options/ButtonBar";
+import DataPlot from "../Components/DataPlot/DataPlot";
 
 const PollHome = () => {
   return (
     <div>
-      {/* <Search /> */}
+      <DataPlot />
       <ButtonBar />
       <PollList />
     </div>

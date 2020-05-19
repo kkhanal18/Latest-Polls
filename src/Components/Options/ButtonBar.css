@@ -1,0 +1,64 @@
+.bar-container {
+  display: flex;
+  flex-direction: row;
+  /* margin-bottom: 10px; */
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+}
+
+.bar-container .bar-container:last-child {
+  float: right;
+}
+
+.button-bar-container {
+  position: relative;
+  width: 130px;
+  /* height: 100%; */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  visibility: visible;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 1px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.options-container .option-button:last-child {
+  border-right: 1px solid;
+}
+
+.filter-button {
+  font-weight: 900;
+}
+
+.fas {
+  font-size: 15px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: -1px;
+  margin-left: 4px;
+  color: black;
+}
+
+.icon {
+  position: absolute;
+  /* margin-top: -1px; */
+  margin-left: 3px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: rgba(220, 220, 220, 0.5);
+}
+
+.icon:hover {
+  background-color: rgba(220, 220, 220, 0.788);
+  border-radius: 50%;
+}
+
+#filter {
+  font-weight: bold;
+}

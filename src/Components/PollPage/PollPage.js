@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
-import { Context } from "../Store/context";
-
-// import formatType from "../Helper/FormatType";
-// import shortenString from "../Helper/ShortenString";
+import { Context } from "../../Store/context";
+import "./PollPage.css";
 
 export const backButton = () => {
   return (
@@ -12,7 +10,7 @@ export const backButton = () => {
   );
 };
 
-const PollPage = props => {
+const PollPage = (props) => {
   const { filteredPolls } = useContext(Context);
   // const { polls } = state;
   if (filteredPolls === undefined || filteredPolls.length === 0) {
@@ -22,13 +20,11 @@ const PollPage = props => {
       </div>
     );
   } else {
-    var poll = filteredPolls.find(x => x.id === props.match.params.id);
+    var poll = filteredPolls.find((x) => x.id === props.match.params.id);
 
     const {
       created_at,
-      // endDate,
       grade,
-      // id,
       population,
       pollster,
       sampleSize,
@@ -36,7 +32,7 @@ const PollPage = props => {
       startDate,
       subgroup,
       type,
-      url
+      url,
     } = poll;
 
     return (

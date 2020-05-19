@@ -1,0 +1,39 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat&display=swap";
+
+.search-container {
+  position: relative;
+}
+
+h2 {
+  color: dodgerblue;
+}
+
+input {
+  border: none;
+  background-color: white;
+  width: 180px;
+  height: 25px;
+  outline: none;
+  font-size: 13px;
+  padding: 6px;
+  border-radius: 1px;
+  background-color: whitesmoke;
+  border: 1px solid whitesmoke;
+}
+
+input:focus {
+  background-color: white;
+  border: 1px solid dodgerblue;
+}
+
+input:hover {
+  background-color: white;
+  border: 1px solid dodgerblue;
+}
+
+.search-container i.search {
+  font-size: 13px;
+  height: 100%;
+  width: 100%;
+  color: black;
+}

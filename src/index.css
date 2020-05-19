@@ -1,68 +1,21 @@
 html {
   overflow-y: scroll;
-
 }
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    /* line-height: 1.4; */
-    /* margin: 20px auto; */
-    /* max-width: 600px; */
-    /* padding: 0 25px; */
-    font-size: 15px;
-
-
-  }
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+}
 
 a {
-  color:black;
+  color: black;
   text-decoration: underline;
   text-decoration-color: blue;
-
-
 }
-
-/* .type-link:hover {
-  text-decoration: underline;
-  text-decoration-color: blue;
-} */
-
-/* a:hover {
-  opacity: .5;
-} */
-
-.polls {
-  /* background-color:rgb(209, 233, 255); */
-  /* width:70%; */
-  /* align-content: center; */
-
-}
-  
-
-h1 {
-  /* display:inline; */
-}
-
-/* .grade {
-  opacity: .3;
-} */
-
-/* .grade:hover {
-  opacity: 1;
-} */
-/* 
-.pollster {
-  font-style: italic;
-  opacity: .2;
-  position:right;
-} */
 
 .line {
-  width:20%;
-  opacity: .3;
-  color:blue;
-  
+  width: 20%;
+  opacity: 0.3;
+  color: blue;
 }
 
 .card {

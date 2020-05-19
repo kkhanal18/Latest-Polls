@@ -1,23 +1,15 @@
-export default function formatType(type) {
-    if (type === "president-primary-d") {
-        return ("Democratic Primary")
-    }
+export default function formatType(str) {
+  return titleCase(str.replace(/-/g, " "));
+}
 
-    if (type === "president-primary-r") {
-        return ("Republican Primary")
-    }
-
-    else if (type === "trump-approval") {
-        return ("Trump Approval Rating")
-    }
-
-    else if (type === "generic-ballot") {
-        return ("Generic Ballot")
-    }
-
-    else if (type === "president-general") {
-        return ("President General")
-    }
-    return (type)
-
+function titleCase(str) {
+  var splitStr = str.toLowerCase().split(" ");
+  for (var i = 0; i < splitStr.length; i++) {
+    // You do not need to check if i is larger than splitStr length, as your for does that for you
+    // Assign it back to the array
+    splitStr[i] =
+      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  // Directly return the joined string
+  return splitStr.join(" ");
 }
